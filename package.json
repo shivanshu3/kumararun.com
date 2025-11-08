@@ -1,0 +1,21 @@
+{
+  "name": "arun_website_new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/styles/styles.css -o ./src/assets/styles.css --minify",
+    "build": "npm run build:css && eleventy",
+    "dev": "npm run build:css && eleventy --serve --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
+  }
+}
