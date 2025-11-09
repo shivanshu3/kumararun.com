@@ -1,0 +1,6 @@
+{% macro resume_card(title, extra_classes="") %}
+<article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70{% if extra_classes %} {{ extra_classes }}{% endif %}">
+  <h2 class="text-xl font-semibold text-slate-900">{{ title }}</h2>
+  {{ caller() }}
+</article>
+{% endmacro %}

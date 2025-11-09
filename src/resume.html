@@ -4,14 +4,15 @@ title: Resume
 permalink: /resume/
 ---
 
+{% from "components/resume-card.njk" import resume_card %}
+
 <section class="space-y-8">
   <div class="space-y-3">
     <h1 class="text-3xl font-semibold text-slate-900">Resume</h1>
   </div>
 
   <div class="grid gap-6 md:grid-cols-2">
-    <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70">
-      <h2 class="text-xl font-semibold text-slate-900">Educational Background</h2>
+    {% call resume_card("Educational Background") %}
       <ul class="mt-4 space-y-3 text-sm text-slate-600">
         <li>
           <p class="text-slate-900 font-medium">Doctor of Dental Medicine (DMD)</p>
@@ -29,10 +30,9 @@ permalink: /resume/
           <p>1984 - 1989</p>
         </li>
       </ul>
-    </article>
+    {% endcall %}
 
-    <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70">
-      <h2 class="text-xl font-semibold text-slate-900">Work Experience</h2>
+    {% call resume_card("Work Experience") %}
       <ul class="mt-4 space-y-3 text-sm text-slate-600">
         <li>
           <p class="text-slate-900 font-medium">Working as an Associate Dentist at a private dental office</p>
@@ -50,11 +50,10 @@ permalink: /resume/
           <p>February 1997 - June 2010</p>
         </li>
       </ul>
-    </article>
+    {% endcall %}
   </div>
 
-  <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70">
-    <h2 class="text-xl font-semibold text-slate-900">Clinical Skills</h2>
+  {% call resume_card("Clinical Skills") %}
     <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside">
       <li>
         <span>Orthodontics:</span>
@@ -71,18 +70,16 @@ permalink: /resume/
       <li>Root Canal Treatment of Anteriors and Premolars</li>
       <li>Extractions</li>
     </ul>
-  </article>
+  {% endcall %}
 
   <div class="grid gap-6 md:grid-cols-2">
-    <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70">
-      <h2 class="text-xl font-semibold text-slate-900">Professional Licensure</h2>
+    {% call resume_card("Professional Licensure") %}
       <p class="mt-4 text-sm text-slate-600">
         Registered as a General Dentist with the College of Dental Surgeons of British Columbia.
       </p>
-    </article>
+    {% endcall %}
 
-    <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70">
-      <h2 class="text-xl font-semibold text-slate-900">Professional Memberships</h2>
+    {% call resume_card("Professional Memberships") %}
       <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside">
         <li>Canadian Dental Association</li>
         <li>British Columbia Dental Association</li>
@@ -91,41 +88,37 @@ permalink: /resume/
         <li>Life Member, Indian Begg's Society (Orthodontics)</li>
         <li>Life Member, Indian Dental Association (IDA)</li>
       </ul>
-    </article>
+    {% endcall %}
   </div>
 
   <div class="grid gap-6 md:grid-cols-2">
-    <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70">
-      <h2 class="text-xl font-semibold text-slate-900">Conferences & Professional Meetings</h2>
+    {% call resume_card("Conferences & Professional Meetings") %}
       <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside">
         <li>Pacific Dental Conference, Vancouver, BC [2016]</li>
         <li>Yankee Dental Conference, Boston, MA [2014, 2015]</li>
         <li>Numerous national level and state level Dental and Orthodontic Conferences in India</li>
       </ul>
-    </article>
+    {% endcall %}
 
-    <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70">
-      <h2 class="text-xl font-semibold text-slate-900">Publications</h2>
+    {% call resume_card("Publications") %}
       <ul class="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside">
         <li>&ldquo;Correction of Class II Div. 2 Malocclusion in a Young Adult Female&rdquo; in the journal of Dental Research and Therapies [October 2009]</li>
         <li>&ldquo;Management of Class II Div. 2 by a General Dentist&rdquo; in the journal of Dental Research and Therapies [November 2009]</li>
         <li>&ldquo;Versatility of the Modern Begg's Appliance in Intrusion and Bodily Retraction of Maxillary Anteriors&rdquo; in the journal of Dental Research and Therapies [December 2009]</li>
       </ul>
-    </article>
+    {% endcall %}
   </div>
 
   <div class="grid gap-6 md:grid-cols-2">
-    <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70">
-      <h2 class="text-xl font-semibold text-slate-900">Community Service</h2>
+    {% call resume_card("Community Service") %}
       <ul class="mt-4 space-y-2 text-sm text-slate-600">
         <li>Active association with Colgate India and the Indian Dental Association</li>
         <li>Organized and attended various dental health camps in India</li>
       </ul>
-    </article>
+    {% endcall %}
 
-    <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70">
-      <h2 class="text-xl font-semibold text-slate-900">Communication</h2>
+    {% call resume_card("Communication") %}
       <p class="mt-4 text-sm text-slate-600">Fluent in English, Punjabi, and Hindi.</p>
-    </article>
+    {% endcall %}
   </div>
 </section>
