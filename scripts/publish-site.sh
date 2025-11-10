@@ -20,6 +20,17 @@ trap cleanup EXIT
 
 git fetch "$remote" "$branch" >/dev/null 2>&1 || true
 
+while IFS= read -r line; do
+  if [[ $line == worktree* ]]; then
+    current_path=${line#worktree }
+  elif [[ $line == branch* ]]; then
+    current_branch=${line#branch }
+    if [[ $current_branch == "$branch" && -n ${current_path:-} && $current_path != "$temp_dir" ]]; then
+      git worktree remove "$current_path" --force >/dev/null 2>&1 || true
+    fi
+  fi
+done < <(git worktree list --porcelain)
+
 if git show-ref --verify --quiet "refs/heads/$branch"; then
   git worktree add "$temp_dir" "$branch"
 else
