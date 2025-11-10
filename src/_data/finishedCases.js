@@ -1,8 +1,3 @@
-const fs = require("node:fs");
-const path = require("node:path");
-
-const baseDir = path.join(__dirname, "..", "assets", "images", "finished_cases_sliders");
-
 const sanitizeName = (name) =>
   name
     .replace(/\(/g, "")
@@ -11,26 +6,34 @@ const sanitizeName = (name) =>
     .trim()
     .replace(/\s+/g, "-");
 
-module.exports = () => {
-  const directories = fs
-    .readdirSync(baseDir, { withFileTypes: true })
-    .filter((dirent) => dirent.isDirectory())
-    .map((dirent) => dirent.name)
-    .sort((a, b) => {
-      const numA = parseInt(a.split(" - ")[0], 10);
-      const numB = parseInt(b.split(" - ")[0], 10);
-      return numA - numB;
-    });
+const cases = [
+  { number: "01", name: "Class III" },
+  { number: "02", name: "Anterior Crossbite" },
+  { number: "03", name: "Class II Div 1" },
+  { number: "04", name: "Class II Div 1" },
+  { number: "05", name: "Class II Div 2" },
+  { number: "06", name: "Ectopic Eruption" },
+  { number: "07", name: "Class II Div 2" },
+  { number: "08", name: "Class II Div 1" },
+  { number: "09", name: "Class II Div 2" },
+  { number: "10", name: "Class I Type 2" },
+  { number: "11", name: "Class II Div 1" },
+  { number: "12", name: "Class II Div 1" },
+  { number: "13", name: "Anterior Deepbite" },
+  { number: "14", name: "Anterior Deepbite" },
+  { number: "15", name: "Class I Type 1" },
+  { number: "16", name: "Class II Div 1 (Bimaxillary)" },
+  { number: "17", name: "Class II Div 1 Subdivision" },
+];
 
-  return directories.map((dirName) => {
-    const [number, ...rest] = dirName.split(" - ");
-    const name = rest.join(" - ").trim();
-    const sanitized = sanitizeName(name);
+module.exports = () =>
+  cases.map((finishedCase) => {
+    const sanitized = sanitizeName(finishedCase.name);
+    const slug = `${finishedCase.number}_${sanitized}`;
     return {
-      number: number.trim(),
-      name,
-      link: `/finished-cases/${number.trim()}_${sanitized}`,
-      image: `/assets/images/finished_cases_sliders/${dirName}/slider_image_2.png`,
+      number: finishedCase.number,
+      name: finishedCase.name,
+      link: `/finished-cases/${slug}`,
+      image: `/assets/images/finished_cases_sliders/${slug}/slider_image_2.png`,
     };
   });
-};
