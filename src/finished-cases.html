@@ -10,28 +10,26 @@ permalink: /finished-cases/
   </header>
 
   <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    {% set cases = range(1, 18) %}
-    {% for case in cases %}
-      {% set caseUrl = "https://example.com/case-" ~ case %}
+    {% for case in finishedCases %}
       <article class="space-y-3">
         <a
-          href="{{ caseUrl }}"
+          href="{{ case.link }}"
           class="block overflow-hidden rounded-[6px] shadow-sm shadow-slate-200 transition hover:shadow-lg"
         >
           <img
-            src="/assets/images/finished_cases_sliders/01 - Class III/slider_image_2.png"
+            src="{{ case.image }}"
             width="800"
             height="500"
-            alt="Orthodontic case {{ case }}"
+            alt="Orthodontic case {{ case.number }} {{ case.name }}"
             class="w-full h-auto object-cover"
             loading="lazy"
           />
         </a>
         <a
-          href="{{ caseUrl }}"
+          href="{{ case.link }}"
           class="text-sm font-semibold text-slate-900 transition hover:text-[#0693e3]"
         >
-          Sample Case
+          {{ case.name }}
         </a>
       </article>
     {% endfor %}
