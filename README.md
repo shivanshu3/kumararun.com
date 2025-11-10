@@ -28,3 +28,11 @@ Static portfolio scaffold built with **Eleventy** for layout/partials plus **Tai
    ```
 
 The output lives in `_site/` and is ready to host anywhere that serves static files.
+
+## Publishing
+
+When you are ready to deploy built artifacts without touching your working tree, run:
+```bash
+npm run publish:site
+```
+This command rebuilds `_site`, stages the generated files in a temporary worktree, commits them to the `publish` branch, and pushes the branch without checking it out locally.
