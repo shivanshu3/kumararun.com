@@ -41,7 +41,7 @@ else
   fi
 fi
 
-rsync -a --delete --exclude '.git' "$site_dir"/ "$temp_dir"/
+rsync -a --delete --exclude '.git' --exclude 'CNAME' "$site_dir"/ "$temp_dir"/
 
 pushd "$temp_dir" >/dev/null
 git add -A
